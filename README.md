@@ -57,7 +57,7 @@ chmod a+x compileUART.sh
 make clean
 make
 ```
-2. **Pin Configurtion*** :
+2. **Pin Configurtion** :
 
 For BeagleBone Black, if the cape-overlay is loaded, config-pin can be directly used to set pins for UART. Else corresponding BB-UART1-00A0.dtbo like devicetree overlays has to be added in uEnv.txt file. 
 
