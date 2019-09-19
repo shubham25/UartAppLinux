@@ -68,6 +68,12 @@ chmod a+x uartPinsConfig.sh
 ```
 - *Now you can execute the application*
 
+
+##TODO
+* multiUARTApp.cpp 
+    - [ ] Implement mutex-based lock in threads.
+
+
 ## References
 The following links provide a very good read about Serial programming and termios structure details.
 
