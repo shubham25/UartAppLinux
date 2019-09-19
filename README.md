@@ -69,7 +69,7 @@ chmod a+x uartPinsConfig.sh
 - *Now you can execute the application*
 
 
-##TODO
+## TODO
 * multiUARTApp.cpp 
     - [ ] Implement mutex-based lock in threads.
 
