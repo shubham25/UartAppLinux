@@ -1,0 +1,45 @@
+before minicom
+
+root@beaglebone:/home/debian/uartTest# stty --file=/dev/ttyO1 
+speed 9600 baud; line = 0;
+-brkint -imaxbel
+
+root@beaglebone:/home/debian/uartTest# stty --file=/dev/ttyO2 
+speed 9600 baud; line = 0;
+-brkint -imaxbel
+
+----------------------------------------------
+
+after minicom
+
+root@beaglebone:/home/debian/uartTest# stty --file=/dev/ttyO1 
+speed 0 baud; line = 0;
+intr = <undef>; quit = <undef>; erase = <undef>; kill = <undef>; eof = <undef>; start = <undef>; stop = <undef>; susp = <undef>; rprnt = <undef>; werase = <undef>;
+lnext = <undef>; discard = <undef>; min = 0; time = 0;
+-cread
+-brkint -icrnl -imaxbel
+-opost -onlcr
+-isig -icanon -iexten -echo -echoe -echok -echoctl -echoke
+
+root@beaglebone:/home/debian/uartTest# stty --file=/dev/ttyO2 
+speed 0 baud; line = 0;
+intr = <undef>; quit = <undef>; erase = <undef>; kill = <undef>; eof = <undef>; start = <undef>; stop = <undef>;
+susp = <undef>; rprnt = <undef>; werase = <undef>; lnext = <undef>; discard = <undef>; min = 0; time = 0;
+-cread
+-brkint -icrnl -imaxbel
+-opost -onlcr
+-isig -icanon -iexten -echo -echoe -echok -echoctl -echoke
+
+-------------------------
+
+useful ones :
+
+root@beaglebone:/home/debian/uartTest# stty -F /dev/ttyO2 sane
+root@beaglebone:/home/debian/uartTest# stty -F /dev/ttyO1 sane
+root@beaglebone:/home/debian/uartTest# stty -F /dev/ttyO2 9600 -parenb -cstopb cs8 clocal cread -icanon -echo -echoe -isig -echok -echoctl -echoke -crtscts ignpar ignbrk -onlcr -icrnl -istrip -imaxbel
+root@beaglebone:/home/debian/uartTest# stty -F /dev/ttyO1 9600 -parenb -cstopb cs8 clocal cread -icanon -echo -echoe -isig -echok -echoctl -echoke -crtscts ignpar ignbrk -onlcr -icrnl -istrip -imaxbel
+root@beaglebone:/home/debian/uartTest# 
+root@beaglebone:/home/debian/uartTest# echo "8" > /dev/ttyO2 
+root@beaglebone:/home/debian/uartTest# cat /dev/ttyO1
+root@beaglebone:/home/debian/uartTest# sz -vv -b /home/debian/logrec.log > /dev/ttyO2 < /dev/ttyO2
+root@beaglebone:/home/debian/uartTest# rz -vv -b -E > /dev/ttyO1 < /dev/ttyO1
